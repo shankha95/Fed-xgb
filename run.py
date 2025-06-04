@@ -1,4 +1,4 @@
-from trainer import XGBoostTrainer
+from model_trainer import XGBoostTrainer
 from watcher import Watcher
 import os
 

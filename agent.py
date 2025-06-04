@@ -1,4 +1,4 @@
-from trainer import XGBoostTrainer
+from model_trainer import XGBoostTrainer
 import os
 
 class Agent:

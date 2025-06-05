@@ -12,7 +12,7 @@ class Agent:
         results, models, preds, y_test = trainer.train_and_evaluate()
 
         print(f"[{self.client_id}] Training complete. MSEs: {results}")
-        trainer.save_models(self.output_dir)
+        trainer.save_models(self.output_dir, self.client_id)
 
         # Optional: save predictions for inspection
         result_df = preds.copy()

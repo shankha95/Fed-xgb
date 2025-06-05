@@ -1,3 +1,4 @@
+import os
 import pandas as pd
 import numpy as np
 import xgboost as xgb
@@ -94,9 +95,10 @@ class XGBoostTrainer:
 
         return results, self.models, predictions, y_test.reset_index(drop=True)
 
-    def save_models(self, output_dir):
+    def save_models(self, output_dir, client_id):
         for target, model in self.models.items():
-            model.save_model(f"{output_dir}/{target}_xgb.json")
+            model_filename = f"{client_id}_{target}_xgb.json"
+            model.save_model(os.path.join(output_dir, model_filename))
 
     def load_models(self, model_dir):
         for target in ['sum_avg_cpu', 'sum_avg_memory', 'sum_max_cpu', 'sum_max_memory']:

@@ -14,7 +14,7 @@ def main():
     results, _, _, _ = trainer.train_and_evaluate()
     print(f"[{client_id}] Training complete. MSEs: {results}")
 
-    trainer.save_models(output_dir)
+    trainer.save_models(output_dir, client_id)
 
     watcher = Watcher(output_dir, server_dir)
     watcher.sync_models()
